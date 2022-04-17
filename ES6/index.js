@@ -110,3 +110,42 @@ helloPromise()
   .catch((error) => console.log(error));
 
 //clases
+class calculator {
+  constructor() {
+    this.valueA = 0;
+    this.valueB = 0;
+  }
+  sum(valueA, valueB) {
+    this.valueA = valueA;
+    this.valueB = valueB;
+    return this.valueA + this.valueB;
+  }
+  res(valueA, valueB) {
+    this.valueA = valueA;
+    this.valueB = valueB;
+    return this.valueA - this.valueB;
+  }
+}
+const calc = new calculator();
+console.log(calc.sum(2, 3));
+const calc1 = new calculator();
+console.log(calc1.res(2, 3));
+
+//export and imports
+const hello = require("./module");
+console.log(hello());
+
+//Generadores, recuerda cual fue el ultimo bloque que se ejecuta y con next pasa al siguiente
+function* helloWorld() {
+  if (true) {
+    yield "Hello, ";
+  }
+  if (true) {
+    yield "World";
+  }
+}
+
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
+console.log(generatorHello.next().value);
